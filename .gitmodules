@@ -1,0 +1,8 @@
+[submodule "Core/resources"]
+	path = Core/resources
+	url = git@github.com:ga2k/resources
+	branch = master
+[submodule "cmake"]
+	path = cmake
+	url = git@github.com:ga2k/CMakeFiles.git
+	branch = master

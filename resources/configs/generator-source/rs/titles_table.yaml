@@ -1,0 +1,16 @@
+tables:
+  titles:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fSearchable:
+        type: string
+        not_null: true
+      fAbbreviation:
+        type: string
+        not_null: true
+      fName:
+        type: string
+        not_null: true

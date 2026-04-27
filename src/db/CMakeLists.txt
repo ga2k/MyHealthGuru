@@ -1,0 +1,11 @@
+list(APPEND _SOURCES
+        ${CMAKE_CURRENT_SOURCE_DIR}/DBase.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/InitializeSchema.cpp
+)
+
+list(APPEND _MODULES
+        ${CMAKE_CURRENT_SOURCE_DIR}/DBase.ixx
+)
+
+set(_SOURCES ${_SOURCES} PARENT_SCOPE)
+set(_MODULES ${_MODULES} PARENT_SCOPE)

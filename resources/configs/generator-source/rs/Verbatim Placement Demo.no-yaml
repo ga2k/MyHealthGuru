@@ -1,0 +1,255 @@
+groups:
+  verbatim:
+    body: |
+      /* Placement 1, the verbatim must be between the "group" and the group name, otherwise an error. The output */
+      /* goes between the namespace and the class declaration */
+
+  verbatim_test:
+    verbatim:
+      body: |
+        /* Placement 2, the verbatim must be between the group name and the controls array, otherwise an error. The output */
+        /* goes after the class declaration */
+        private:
+        int aPrivateVariable;
+
+    functions:
+      onSelect:
+        args: "wxCommandEvent &event"
+        return: void
+        body: |
+          TraceCall;
+          auto newName = hs::saveFileDialog ("New Datafile",
+                  wxString ((hs::getDocumentsDir() / (hs::appName() + "." + hs::mdiDocExtn())).c_str()).ToStdString().c_str());
+          if ( newName.empty() ) {
+              return;
+          }
+          
+          if ( fs::exists (newName) ) {
+              fs::remove (newName);
+          }
+          
+          m_filenameText->live (newName);
+          m_filenameText->transferToWindow();
+
+    controls:
+      verbatim:
+        body: |
+          /* Placement 3, the verbatim must be between the controls: keyword and first control or label, otherwise an error. The output */
+          /* goes after the constructor */
+
+      "Filename":
+        has_labels: true
+        has_control: true
+        tool_tip: "Enter filename here or click on 'Select' to browse"
+
+        verbatim:
+          body: |
+            /* Placement 4a, the verbatim must be before the items array, otherwise an error. The output */
+            /* goes after variable definition and the addControl() call */
+
+        items:
+          - labels:
+              - key: "LIX::Main"
+                name: "FilenameLabel"
+                class: "MarkupText"
+                value: "Filename"
+                style: [ "wxALIGN_CENTRE_VERTICAL", "wxALIGN_RIGHT" ]
+
+                sizer:
+                  position: [ 0, 0 ]
+                  span: [ 1, 1 ]
+                  flags: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT" ]
+
+          - control:
+              "m_filenameText":
+                name: "Filename"
+                class: "TextCtrl"
+                contains: "std::string"
+                style: [ "wxTE_PROCESS_ENTER" ]
+                value: ""
+                size: "sizeCtrlLarge"
+
+                validator:
+                  class: "GenericValidator"
+                  allow_empty: false
+                  tool_tip: "Filename must be specified"
+
+                sizer:
+                  position: [ 0, 1 ]
+                  span: [ 1, 20 ]
+                  flags: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW" ]
+
+      "Select":
+        has_labels: false
+        has_control: true
+        tool_tip: "Click here to open a file selection dialog box"
+
+        verbatim:
+          body: |
+            /* Placement 4b, the verbatim must be before the items array, otherwise an error. The output */
+            /* goes after variable definition and the addControl() call */
+
+        items:
+          - control:
+              "m_selectButton":
+                class: "Button"
+                value: "Select"
+                uicreateflags: "ExcludeFromColour"
+                handlers:
+                  - event:       "wxEVT_COMMAND_BUTTON_CLICKED"
+                    handler: |
+                      event.Skip();
+                      onSelect(dynamic_cast<wxCommandEvent&>(event));
+                sizer:
+                  position: [ 0, 21 ]
+                  span: [ 1, 1 ]
+                  flags: [ "wxALIGN_CENTRE_VERTICAL", "wxALL" ]
+
+    finally:
+      body: |
+        /* The finally block must be between the "group" and the group name, like the first verbatim, otherwise an error.
+           Placing this block at the end of the group, like this is, allows you to more clearly visualise where it goes;
+           and is logically the same as placing it 'up the top' of the group.
+           The output is the last thing in the group block. 
+        */
+
+
+comment: |
+  
+  module;
+  #include "Core/CoreData.h"
+
+  #include "Core/Core.h"
+  #include "Core/Util.h"
+  #include "Gfx/Widgets.h"
+  #include "Gfx/wx.h"
+
+  #include <unordered_set>
+
+  export module VerbatimTest.Group;
+
+  import wxTypes;
+  import Button;
+  import Ctrl;
+  import DDT;
+  import GBSizerInterface;
+  import GenericValidator;
+  import Group;
+  import Markup;
+  import StringUtil;
+  import Text;
+  import Validator;
+  import wxTypes;
+  import wxUtil;
+
+  namespace wx {
+  /* Placement 1, the verbatim must be between the "group" and the group name, otherwise an error. The output */
+  /* goes between the namespace and the class declaration */
+
+  export class VerbatimTestGroup : public Group {
+     /* Placement 2, the verbatim must be between the group name and the controls array, otherwise an error. The output */
+     /* goes after the class declaration */
+     private:
+     int aPrivateVariable;
+
+     std::filesystem::path layoutPath;
+
+  public:
+     auto onKillActive() -> void override;
+     auto onSetActive() -> void override;
+
+  protected:
+     // clang-format off
+     TextCtrl* m_filenameText {};
+     Button* m_selectButton {};
+     // clang-format on
+
+  public:
+     ~VerbatimTestGroup() override = default;
+
+     explicit VerbatimTestGroup(UICreateFlags cflags, const std::string &name, wxWindow *pParent, wxWindowIDRef id, int orient,
+                        const std::string &label = "VerbatimTest ", const anymap &args = {})
+        : Group(cflags, name, pParent, id, orient, label, args) {
+        layoutPath = hs::resourceName(UIType::GeneratorSource, "Verbatim PlacementGroup", false, nullptr);
+        ASSERT_MSG(!layoutPath.empty(), "Couldn't find layout resource file: " + layoutPath.string());
+
+        /* Placement 3, the verbatim must be between the controls: keyword and first control or label, otherwise an error. The output */
+  /* goes after the constructor */
+
+        (m_filenameText = new TextCtrl(UICreateFlags::Null, "Filename", this, nextID(), "", wxDefaultPosition,
+                                    sizeCtrl))
+           ->addValidator(new GenericValidator(false, m_filenameText->liveAddr<std::string>()))
+           .createLabel(UICreateFlags::Null, "FilenameLabel", this, nextID(), "Filename", wxDefaultPosition,
+                        sizeLabel, wxALIGN_CENTRE_VERTICAL | wxALIGN_RIGHT)
+           .setToolTip("Enter filename here or click on 'Select' to browse")
+           ;
+
+        /* Placement 4a, the verbatim must be before the items array, otherwise an error. The output */
+        /* goes after variable definition and the addControl() call */
+
+        addControl(m_filenameText);
+
+        (m_selectButton = new Button(UICreateFlags::ExcludeFromColour, "Select", this, nextID(), "", wxDefaultPosition,
+                                    sizeCtrlButton))
+           ->set <std::string> ("Select")
+           .setToolTip("Click here to open a file selection dialog box")
+           .hookAndHandle(wxEVT_COMMAND_BUTTON_CLICKED, m_selectButton, [this](wxEvent &event) {
+              event.Skip();
+              onSelect(dynamic_cast<wxCommandEvent&>(event));
+
+           })
+           ;
+
+        /* Placement 4b, the verbatim must be before the items array, otherwise an error. The output */
+        /* goes after variable definition and the addControl() call */
+
+        addControl(m_selectButton);
+        VERIFY_MSG(this->loadLayout(layoutPath), "Couldn't load layout resource file: " + layoutPath.string());
+
+        for ( auto i : std::views::iota (0, m_layout.sizer->GetEffectiveColsCount()) ) {
+           if ( !m_layout.sizer->IsColGrowable (i) )
+              m_layout.sizer->AddGrowableCol (i, 1);
+        }
+        for ( auto i : std::views::iota (0, m_layout.sizer->GetEffectiveRowsCount()) ) {
+           if ( !m_layout.sizer->IsRowGrowable (i) )
+              m_layout.sizer->AddGrowableRow (i, 1);
+        }
+        /* The finally block must be between the "group" and the group name, like the first verbatim, otherwise an error.
+           Placing this block at the end of the group, like this is, allows you to more clearly visualise where it goes;
+           and is logically the same as placing it 'up the top' of the group.
+           The output is the last thing in the group block. 
+        */
+     }
+
+  public:
+     auto onSelect (wxCommandEvent &event) -> void {
+        TraceCall;
+        auto newName = hs::saveFileDialog ("New Datafile",
+                wxString ((hs::getDocumentsDir() / (hs::appName() + "." + hs::mdiDocExtn())).c_str()).ToStdString().c_str());
+        if ( newName.empty() ) {
+            return;
+        }
+
+        if ( fs::exists (newName) ) {
+            fs::remove (newName);
+        }
+
+        m_filenameText->live (newName);
+        m_filenameText->transferToWindow();
+
+     }
+  };
+
+  auto VerbatimTestGroup::onKillActive() -> void {
+
+     Group::onKillActive();
+     
+  }
+
+  auto VerbatimTestGroup::onSetActive() -> void {
+
+     Group::onSetActive();
+     
+  }
+
+  } // namespace wx

@@ -1,0 +1,10 @@
+tables:
+  phone_types:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fType:
+        type: string
+        not_null: true

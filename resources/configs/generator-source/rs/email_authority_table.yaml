@@ -1,0 +1,15 @@
+tables:
+  email_authority:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fValue:
+        type: integer
+        not_null: true
+        default: 0
+      fName:
+        type: string
+        not_null: true
+

@@ -1,0 +1,87 @@
+pages:
+  doctors:
+#    sizer:
+#      cols: 1
+#      rows: 7
+#      growable_cols: [ 0 ]
+#      growable_rows: [ 0, 1, 2, 3, 4, 5, 6 ]
+
+    args:
+      arg_name: "doctorsArgs"
+      args_in: [ "pageName", "std::string", "General",
+                 "splitWindow", "bool", "false"
+      ]
+#
+#    on_kill_active:
+#      body: |
+#        // Yadda yadda yadda
+#           Interface::onKillActive(autoDisable);
+
+    base_class: SplitterPage
+    modules: ["SplitterPage", "Doctors.RS"]
+    title: "Doctors"
+    layout: "Doctors"
+    elements:
+
+    functions:
+      select:
+        return: "soci::rowset<>"
+        override: True
+        body: |
+          auto rs = mc::DoctorsRS(*ICtrl::db()->getTable("doctors"));
+          return rs.getRowset("id = 1");
+
+tables:
+  doctors:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fGivenName:
+        type: string
+        not_null: true
+      fFamilyName:
+        type: string
+      bFNF:
+        type: hs_bool
+      rTitleID:
+        type: integer
+      rAddressID:
+        type: integer
+      rPostalAddressID:
+        type: integer
+
+    relationships:
+      - name: r_doctor_title
+        as: title
+        type: many_to_one
+        foreign_key: rTitleID
+        references_table: titles
+        references_field: id
+        replace_with: [ fName ]
+        replace_as: title
+        cascade_delete: true
+      - name: r_doctor_address
+        as: address
+        type: many_to_one
+        foreign_key: rAddressID
+        references_table: addresses
+        references_field: id
+        replace_with: [ fAddressLine1, fAddressLine2, fCity ]
+        replace_as: address
+        cascade_delete: true
+      - name: r_doctor_postal_address
+        as: postal_address
+        type: many_to_one
+        foreign_key: rPostalAddressID
+        references_table: addresses
+        references_field: id
+        replace_with: [ fAddressLine1, fAddressLine2, fCity ]
+        replace_as: postal_address
+        cascade_delete: true
+
+    indexes:
+      - name: idx_doctor_title
+        fields: [rTitleID]
+        unique: false
