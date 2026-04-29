@@ -1,7 +1,7 @@
 # Sub-repos managed outside this repo (formerly submodules)
 Core/
 Gfx/
-MyCare/
+HealthCanvas/
 
 **/.DS_Store
 **/.run/
