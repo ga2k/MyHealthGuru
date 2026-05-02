@@ -1,0 +1,14 @@
+tables:
+  email_ports:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fValue:
+        type: integer
+        not_null: true
+        default: 587
+      fName:
+        type: string
+        not_null: true

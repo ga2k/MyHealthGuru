@@ -1,0 +1,22 @@
+tables:
+  years:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      fCalendarYear:
+        type: integer
+        not_null: true
+      fGeneralThreshold:
+        type: integer
+        default: 0
+      fGeneralCopay:
+        type: integer
+        default: 0
+      fConcessionThreshold:
+        type: integer
+        default: 0
+      fConcessionCopay:
+        type: integer
+        default: 0

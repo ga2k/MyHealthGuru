@@ -1,0 +1,32 @@
+breaks:
+  - after: ["Name Details", "Misc. User Items", "Contact Details"]
+
+elements:
+
+  - name: "Name Details"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "Misc. User Items"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "Contact Details"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "InfoBar"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]

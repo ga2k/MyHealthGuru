@@ -1,0 +1,143 @@
+groups:
+  sms_alerts:
+    title: "SMS Alerts"
+    layout: "SmsAlertsGroup"
+    sizer:
+      rows: 2
+      cols: 7
+      growable_cols: [2, 4, 6]
+    elements:
+      - identity:  "Use SMS Alerts"
+        tool_tip: "Should SMS Alerts be generated for events?"
+        items:
+          - widget:
+              variable: "m_useSMSs"
+              tag: "Use SMS Alerts"
+#              size: "sizeCtrlCheckBox"
+              class: "CheckBox"
+              module: "CheckBox"
+              contains: "bool"
+              style: [ "wxALIGN_CENTER" ]
+              table: "settings"
+              field: "fUseSMSs"
+              validator:
+                class: "GenericValidator"
+                allow_empty: false
+
+              sizer:
+                position: [ 0, 0 ]
+                flags: [ "wxALIGN_CENTER", "wxALL" ]
+          - labels:
+              - key: "LIX::Main"
+                tag: "UseSMSAlertsLabel"
+                size: "sizeLabel"
+                class: "MarkupText"
+                value: "Send SMS's"
+                style: [ "wxALIGN_LEFT", "wxALIGN_CENTER_VERTICAL" ]
+
+                sizer:
+                  position: [ 0, 1 ]
+                  flags: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_LEFT" ]
+      - identity:  "Server Address"
+        tool_tip: "The URL of the SMS Server to send from"
+        items:
+          - labels:
+              - key: "LIX::Main"
+                size: "sizeLabel"
+                tag: "ServerAddressLabel"
+                class: "MarkupText"
+                value: "URL"
+                style: [ "wxALIGN_RIGHT", "wxALIGN_CENTER_VERTICAL" ]
+
+                sizer:
+                  position: [ 1, 1 ]
+                  flags: [ "wxALIGN_RIGHT", "wxALIGN_CENTRE_VERTICAL", "wxALL" ]
+
+          - widget:
+              variable: "m_smsServer"
+              tag: "Server Address"
+              size: "sizeCtrl"
+              class: "TextCtrl"
+              module: "TextCtrl"
+              contains: "std::string"
+              style: [ "wxALIGN_LEFT", "wxTE_PROCESS_ENTER" ]
+              table: "settings"
+              field: "fSMSServer"
+
+              validator:
+                class: "DomainValidator"
+                allow_empty: false
+
+              sizer:
+                position: [ 1, 2 ]
+                flags: [ "wxALIGN_CENTRE_VERTICAL", "wxGROW", "wxALL" ]
+                proportion: 100
+
+      - identity:  "Server User"
+        tool_tip: "The login username for the SMS Server"
+        items:
+          - labels:
+              - key: "LIX::Main"
+                size: "sizeLabel"
+                tag: "ServerUserLabel"
+                class: "MarkupText"
+                value: "Server User"
+                style: [ "wxALIGN_RIGHT", "wxALIGN_CENTER_VERTICAL" ]
+
+                sizer:
+                  position: [ 1, 3 ]
+                  flags: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT" ]
+
+          - widget:
+              variable: "m_serverUser"
+              tag: "Server User"
+              size: "sizeCtrl"
+              class: "TextCtrl"
+              module: "TextCtrl"
+              contains: "std::string"
+              style: [ "wxALIGN_LEFT", "wxTE_PROCESS_ENTER" ]
+              table: "settings"
+              field: "fSMSUser"
+
+              validator:
+                class: "EmailValidator"
+                allow_empty: false
+
+              sizer:
+                position: [ 1, 4 ]
+                proportion: 100
+                flags: [ "wxALIGN_CENTRE_VERTICAL", "wxGROW", "wxALL" ]
+
+      - identity: "padding"
+        items:
+          - labels:
+              - key: "LIX::Main"
+                size: "sizeLabel"
+                tag: "padding"
+                class: "MarkupText"
+                value: ""
+                style: [ "wxALIGN_RIGHT", "wxALIGN_CENTER_VERTICAL" ]
+
+                sizer:
+                  position: [1, 5]
+                  flags: [ "wxALIGN_RIGHT", "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxRESERVE_SPACE_EVEN_IF_HIDDEN" ]
+                  hide: true
+
+          - widget:
+              variable: "padding"
+              tag: "gniddap"
+              size: "sizeCtrl"
+              class: "TextCtrl"
+              module: "TextCtrl"
+              contains: "std::string"
+              style: [ "wxALIGN_LEFT", "wxTE_PROCESS_ENTER" ]
+              uicreateflags: NoValidation
+              validator:
+                class: "GenericValidator"
+                allow_empty: true
+
+              sizer:
+                position: [1, 6]
+                proportion: 100
+                flags: [ "wxALIGN_CENTRE_VERTICAL", "wxGROW", "wxALL", "wxRESERVE_SPACE_EVEN_IF_HIDDEN" ]
+                hide: true

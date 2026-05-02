@@ -37,4 +37,5 @@ _CPack_Packages/
 compile_commands.json
 .cache/
 compile_commands.json
+HealthCanvas-*
 

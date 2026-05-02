@@ -1,0 +1,190 @@
+elements:
+
+  - name: "Want Popup Alerts"
+    has_labels: true
+    has_control: true
+    items:
+      - widget:
+          position: [0, 0]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALIGN_RIGHT"]
+          borderWidth: 5
+      - labels:
+          - which: "LIX::Main"
+            position: [0, 1]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL"]
+            borderWidth: 5
+
+  - name: "Medicare Number"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [0, 2]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [0, 3]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Want SMS Alerts"
+    has_labels: true
+    has_control: true
+    items:
+      - widget:
+          position: [1, 0]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALIGN_RIGHT"]
+          borderWidth: 5
+      - labels:
+          - which: "LIX::Main"
+            position: [1, 1]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL"]
+            borderWidth: 5
+
+  - name: "Medicare Index"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [1, 2]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [1, 3]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Want Email Alerts"
+    has_labels: true
+    has_control: true
+    items:
+      - widget:
+          position: [2, 0]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALIGN_RIGHT"]
+          borderWidth: 5
+      - labels:
+          - which: "LIX::Main"
+            position: [2, 1]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL"]
+            borderWidth: 5
+
+  - name: "Concession"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [2, 2]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL"]
+            borderWidth: 5
+      - widget:
+          position: [2, 3]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALIGN_RIGHT"]
+          borderWidth: 5
+
+  - name: "YTD Copay"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [4, 0]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [4, 1]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Copay Threshold"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [4, 2]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [4, 3]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Date Reached"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [5, 0]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [5, 1]
+          span: [1, 1]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "GP"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [7, 0]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [7, 1]
+          span: [1, 3]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Pharmacist"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          - which: "LIX::Main"
+            position: [8, 0]
+            span: [1, 1]
+            style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT"]
+            borderWidth: 5
+      - widget:
+          position: [8, 1]
+          span: [1, 3]
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+          borderWidth: 5
+
+  - name: "Date of Birth"
+    has_labels: true
+    has_control: true
+    items:
+      - labels:
+          position: [3, 0]
+          span: [1, 1]
+          style: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxALIGN_RIGHT" ]
+      - widget:
+          position: [3, 0]
+          span: [1, 1]
+          style: [ "wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW" ]
