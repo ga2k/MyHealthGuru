@@ -62,6 +62,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set(CPACK_GENERATOR "DragNDrop;TGZ")
 else()
     set(CPACK_GENERATOR "RPM;STGZ")
+    set(CPACK_RPM_PACKAGE_RELOCATABLE OFF)
 endif()
 
 # Tell CPack to gather install rules from the root build dir.
