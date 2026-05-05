@@ -1,0 +1,24 @@
+pages:
+  appearance_settings:
+#    sizer:
+#      cols: 1
+#      rows: 7
+#      growable_cols: [ 0 ]
+#      growable_rows: [ 0, 1, 2, 3, 4, 5, 6 ]
+
+    args:
+      arg_name: "appearanceSettingsArgs"
+      args_in: [ "pageName", "std::string", "General",
+                 "splitWindow", "bool", "false"
+      ]
+#
+#    on_kill_active:
+#      body: |
+#        // Yadda yadda yadda
+#           Interface::onKillActive(autoDisable);
+    base_class: Page
+    module: Page
+
+    title: "Appearance Settings"
+    layout: "AppearanceSettings"
+    elements:

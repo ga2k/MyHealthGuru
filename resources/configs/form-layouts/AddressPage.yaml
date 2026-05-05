@@ -1,0 +1,31 @@
+breaks:
+  - after: ["Address Selector", "Physical Address", "Postal Address"]
+
+elements:
+  - name: "Address Selector"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "Physical Address"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "Postal Address"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"]
+
+  - name: "InfoBar"
+    has_labels: false
+    has_control: true
+    items:
+      - widget:
+          style: ["wxALIGN_CENTRE_VERTICAL", "wxALL", "wxGROW"] #, "wxRESERVE_SPACE_EVEN_IF_HIDDEN"]

@@ -4,7 +4,7 @@ set(APP_NAME "MyHealthGuru") #                                                  
 set(APP_VENDOR "HoffSoft") #    Your Company Name or other identifying tag. Multiple apps by the same vendor are grouped
 set(APP_DESCRIPTION "My complete health and allied services record-keeper") #                       Aww, that's so sweet
 set(APP_VERSION "2.0.0") #                             The app version number. Components have their own version numbers
-set(APP_DATE "2026-04-27") #                                                                                  Build Date
+set(APP_DATE "2026-05-06") #                                                                                  Build Date
 set(APP_TYPE "Executable") #                                                                       Library or Executable
 
 set(APP_DATA_VERSION 1000) #
@@ -16,8 +16,8 @@ set(APP_FILE_EXTN "hcdb") #                           The actual filename extens
 set(APP_DOC_CLASS "Document") #   Class name for your document. Usually "Document", leave it unless you have a real need
 set(APP_VIEW_CLASS "View") #              Class name for your view. Usually "View", leave it unless you have a real need
 
-set(APP_GENERATE_RECORDSETS ${CMAKE_CURRENT_LIST_DIR}/resources/configs/generator-source) #       Dynamic yaml-to-ixx creation
-set(APP_GENERATE_UI_CLASSES ${CMAKE_CURRENT_LIST_DIR}/resources/configs/generator-source) #       Dynamic yaml-to-ixx creation
+set(APP_GENERATE_RECORDSETS ${CMAKE_CURRENT_LIST_DIR}/resources/configs/generator-source) # Dynamic yaml-to-ixx creation
+set(APP_GENERATE_UI_CLASSES ${CMAKE_CURRENT_LIST_DIR}/resources/configs/generator-source) # Dynamic yaml-to-ixx creation
 
 set(APP_SHOW_SIZER_INFO_IN_SOURCE ON) #                 Generate sizer info comments in generated UI modules source code
 
