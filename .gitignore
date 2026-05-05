@@ -23,7 +23,6 @@ utils/
 .makefile_update_check
 .makefile_status
 .modules
-**/global-resources
 **/archive
 
 _CPack_Packages/
