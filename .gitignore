@@ -11,8 +11,6 @@ CMakePresets.json
 Testing/
 bin/
 build/
-cmake
-cmake/
 demos/
 external/
 externals/
@@ -26,7 +24,6 @@ utils/
 .makefile_status
 .modules
 **/global-resources
-**/resources
 **/archive
 
 _CPack_Packages/

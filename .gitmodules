@@ -1,6 +1,6 @@
 [submodule "resources"]
 	path = resources
-	url = git@github.com:ga2k/resources
+	url = git@github.com:ga2k/resources.git
 	branch = master
 [submodule "cmake"]
 	path = cmake
