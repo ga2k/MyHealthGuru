@@ -1,1 +1,1 @@
-# HealthCanvas
+# MyHealthGuru

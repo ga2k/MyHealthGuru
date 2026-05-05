@@ -1,8 +1,3 @@
-# Sub-repos managed outside this repo (formerly submodules)
-Core/
-Gfx/
-HealthCanvas/
-
 **/.DS_Store
 **/.run/
 **/__pycache__/*
@@ -31,11 +26,12 @@ utils/
 .makefile_status
 .modules
 **/global-resources
+**/resources
 **/archive
 
 _CPack_Packages/
 compile_commands.json
 .cache/
 compile_commands.json
-HealthCanvas-*
+MyHealthGuru-*
 

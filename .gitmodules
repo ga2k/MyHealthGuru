@@ -1,5 +1,5 @@
-[submodule "Core/resources"]
-	path = Core/resources
+[submodule "resources"]
+	path = resources
 	url = git@github.com:ga2k/resources
 	branch = master
 [submodule "cmake"]
