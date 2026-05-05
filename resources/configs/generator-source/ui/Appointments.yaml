@@ -1,0 +1,43 @@
+pages:
+  appointments:
+#    sizer:
+#      cols: 1
+#      rows: 7
+#      growable_cols: [ 0 ]
+#      growable_rows: [ 0, 1, 2, 3, 4, 5, 6 ]
+
+    args:
+      arg_name: "appointmentsArgs"
+      args_in: [ "pageName", "std::string", "General",
+                 "splitWindow", "bool", "false"
+      ]
+#
+#    on_kill_active:
+#      body: |
+#        // Yadda yadda yadda
+#           Interface::onKillActive(autoDisable);
+
+    base_class: SplitterPage
+    modules: ["SplitterPage", "Appointments.RS"]
+    title: "Appointments"
+    layout: "Appointments"
+    elements:
+
+    functions:
+      select:
+        return: "soci::rowset<>"
+        override: True
+        body: |
+          auto rs = mc::AppointmentsRS(*ICtrl::db()->getTable("appointments"));
+          return rs.getRowset("id = 1");
+
+tables:
+  appointments:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      bEnabled:
+        type: hs_bool
+        not_null: false

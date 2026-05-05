@@ -1,0 +1,43 @@
+pages:
+  illnesses:
+#    sizer:
+#      cols: 1
+#      rows: 7
+#      growable_cols: [ 0 ]
+#      growable_rows: [ 0, 1, 2, 3, 4, 5, 6 ]
+
+    args:
+      arg_name: "illnessesArgs"
+      args_in: [ "pageName", "std::string", "General",
+                 "splitWindow", "bool", "false"
+      ]
+#
+#    on_kill_active:
+#      body: |
+#        // Yadda yadda yadda
+#           Interface::onKillActive(autoDisable);
+
+    base_class: SplitterPage
+    modules: ["SplitterPage", "Illnesses.RS"]
+    title: "Illnesses"
+    layout: "Illnesses"
+    elements:
+
+    functions:
+      select:
+        return: "soci::rowset<>"
+        override: True
+        body: |
+          auto rs = mc::IllnessesRS(*ICtrl::db()->getTable("illnesses"));
+          return rs.getRowset("id = 1");
+
+tables:
+  illnesses:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      bEnabled:
+        type: hs_bool
+        not_null: false

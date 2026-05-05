@@ -1,0 +1,150 @@
+tables:
+
+  settings:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+
+      fMagic:
+        type: integer
+        not_null: true
+
+      fDataVersion:
+        type: integer
+        not_null: true
+
+      rYearID:
+        type: integer
+        not_null: true
+
+      rUserID:
+        type: integer
+        not_null: true
+
+# email server group
+
+      rEmailAuthority:
+        type: integer
+
+      rEmailSecurity:
+        type: integer
+
+      fEmailPassword:
+        type: string
+
+      rEmailPort:
+        type: integer
+
+      fEmailServer:
+        type: string
+
+      rEmailTestStatus:
+        type: integer
+
+      fEmailTimeout:
+        type: integer
+
+      fEmailUser:
+        type: string
+
+# sms gateway group
+
+      fSMSGateway:
+        type: string
+
+      rSMSTestStatus:
+        type: integer
+
+      fSMSUser:
+        type: string
+
+# pbs group
+
+      fPBSWebsiteURL:
+        type: string
+
+# referral group
+
+      bReferralsExpire:
+        type: hs_bool
+
+      fReferralExpiry:
+        type: integer
+
+      fReferralNotice:
+        type: integer
+
+# script group
+
+      bScriptsExpire:
+        type: hs_bool
+
+      fScriptExpiry:
+        type: integer
+
+      fScriptNotice:
+        type: integer
+
+# notification group
+
+      bUseEmailAlerts:
+        type: hs_bool
+
+      bUsePopupAlerts:
+        type: hs_bool
+
+      bUseSMSAlerts:
+        type: hs_bool
+
+    relationships:
+      - name: r_settings_year
+        type: many_to_one
+        foreign_key: rYearID
+        references_table: years
+        references_field: id
+        replace_with: [ "fCalendarYear" ]
+        cascade_delete: false
+      - name: r_settings_admin
+        type: many_to_one
+        foreign_key: rUserID
+        references_table: users
+        references_field: id
+        replace_with: [ "fGivenName", "fFamilyName" ]
+        cascade_delete: false
+      - name: r_authority_type
+        type: many_to_one
+        foreign_key: rEmailAuthority
+        references_table: email_authority
+        references_field: id
+        replace_with: [ "fName" ]
+        cascade_delete: false
+      - name: r_security_type
+        type: many_to_one
+        foreign_key: rEmailSecurity
+        references_table: email_security
+        references_field: id
+        replace_with: [ "fName" ]
+        cascade_delete: false
+      - name: r_known_port
+        type: many_to_one
+        foreign_key: rEmailPort
+        references_table: email_ports
+        references_field: id
+        replace_with: [ "fName" ]
+        cascade_delete: false
+      - name: r_email_test_status
+        type: many_to_one
+        foreign_key: rEmailTestStatus
+        references_table: test_status
+        references_field: id
+        replace_with: [ "fStatus" ]
+        cascade_delete: false
+      - name: r_sms_test_status
+        type: many_to_one
+        foreign_key: rSMSTestStatus
+        references_table: test_status
+        references_field: id
+        replace_with: [ "fStatus" ]
+        cascade_delete: false

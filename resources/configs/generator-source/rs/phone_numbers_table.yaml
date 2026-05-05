@@ -1,0 +1,38 @@
+tables:
+  phone_numbers:
+    fields:
+      id:
+        type: integer
+        auto_increment: true
+        primary_key: true
+      rUserID:
+        type: integer
+        not_null: true
+      fNumber:
+        type: string
+        not_null: true
+      rTypeID:
+        type: integer
+        not_null: true
+    relationships:
+      - name: r_phone_user
+        type: many_to_one
+        foreign_key: rUserID
+        references_table: users
+        references_field: id
+        replace_with: [ "fGivenName", "fFamilyName"]
+        cascade_delete: true
+      - name: r_phone_type
+        type: many_to_one
+        foreign_key: rTypeID
+        references_table: phone_types
+        references_field: id
+        replace_with: [ "fType" ]
+        cascade_delete: true
+    indexes:
+      - name: idx_phone_user
+        fields: [rUserID]
+        unique: false
+      - name: idx_phone_type
+        fields: [rTypeID]
+        unique: false
