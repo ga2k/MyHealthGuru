@@ -29,11 +29,7 @@ set(APP_FEATURES #                             Available : APPEARANCE BOOST COMM
         GUI
 )
 
-set(APP_CONSUMES_PLUGINS
-        Appearance
-        Logger
-        Print
-)
+set(APP_CONSUMES_PLUGINS)
 
 set(APP_LOCAL_RESOURCES "resources")
 set(APP_GLOBAL_RESOURCES "git@github.com:ga2k/HoffSoft_resources.git")
