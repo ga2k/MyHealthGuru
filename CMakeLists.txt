@@ -35,47 +35,6 @@ include("${cmake_root}/project_setup.cmake")
 include("${cmake_root}/project_install.cmake")
 include("${cmake_root}/clearVars.cmake")
 
-#find_package(Core REQUIRED PATHS "${STAGE_DIR}/lib64" ${SYSTEM_DIR})
-#find_package(Gfx  REQUIRED PATHS "${STAGE_DIR}/lib64" ${SYSTEM_DIR})
-
-
-
-
-
-
-
-### App configuration (app.yaml) generation paths
-#set(APP_YAML_TEMPLATE_PATH "${cmake_root}/templates/app.yaml.in")
-#include(${cmake_root}/generate_app_config.cmake)
-#install(FILES "${APP_YAML_PATH}" DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${APP_NAME})
-#
-## Code generators (optional)
-#include(${cmake_root}/generator.cmake)
-#
-#if (APP_GENERATE_RECORDSETS OR APP_GENERATE_UI_CLASSES)
-#
-#    set(GEN_DEST_DIR ${BUILD_DIR}/generated)
-#
-#    if (APP_GENERATE_RECORDSETS)
-#        generateRecordsets(
-#                ${GEN_DEST_DIR}/rs
-#                ${APP_GENERATE_RECORDSETS}
-#                ${APP_NAME})
-#    endif ()
-#    if("${APP_TYPE}" MATCHES "Executable")
-#        set(EXPORTS_VAR "")
-#    else ()
-#        set(EXPORTS_VAR ${APP_NAME}_EXPORTS)
-#    endif ()
-#    if (APP_GENERATE_UI_CLASSES)
-#        generateUIClasses(
-#                ${GEN_DEST_DIR}/ui
-#                ${APP_GENERATE_UI_CLASSES}
-#                ${APP_NAME}
-#                "${EXPORTS_VAR}")
-#    endif ()
-#endif ()
-
 project_setup(src)
 
 include(InstallRequiredSystemLibraries)
