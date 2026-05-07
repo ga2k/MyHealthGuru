@@ -24,9 +24,6 @@ set(APP_SHOW_SIZER_INFO_IN_SOURCE ON) #                 Generate sizer info comm
 set(APP_FEATURES #                             Available : APPEARANCE BOOST COMMS CORE DATABASE GFX LOGGER PRINT SSL GUI
         "CORE PACKAGE FindCore"
         "GFX  PACKAGE FindGfx"
-        SSL
-        DATABASE
-        GUI
 )
 
 set(APP_CONSUMES_PLUGINS)
