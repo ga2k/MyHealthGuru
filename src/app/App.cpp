@@ -171,22 +171,4 @@ auto App::DialogBoxText(const std::string &which) -> std::shared_ptr<hs::HtmlDia
 }
 } // namespace mc
 wxIMPLEMENT_DYNAMIC_CLASS(mc::App, CApp);
-
-
-
-extern "C" int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, wxCmdLineArgType lpCmdLine,
-                                 int nCmdShow) {
-   ;;
-   return wxEntry(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
-}
-
-mc::App &wxGetApp() { return *static_cast<mc::App *>(wxApp::GetInstance()); }
-
-wxAppConsole *wxCreateApp() {
-   wxAppConsole::CheckBuildOptions(
-      "3" "." "3" "." "3" " (" "wchar_t" ",Visual C++ " "1900" ",STL containers" ",compatible with 3.2" ")",
-      "your program");
-   return new mc::App;
-}
-
-wxAppInitializer wxTheAppInitializer((wxAppInitializerFunction)wxCreateApp);
+wxIMPLEMENT_APP(mc::App);
