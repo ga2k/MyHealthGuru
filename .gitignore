@@ -28,7 +28,5 @@ utils/
 _CPack_Packages/
 compile_commands.json
 .cache/
-compile_commands.json
-HoffSoft-*
 
 

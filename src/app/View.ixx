@@ -42,30 +42,6 @@ wxIMPLEMENT_DYNAMIC_CLASS(View, CView);
 
 inline View::View() : CView(CFrame::getAuiManager(wx::pFrame<CFrame>())) {
     wx::pView(static_cast<wxView*>(this));
-//    const char* compiled = wx::compiledBackend();
-//    const char* want = std::getenv("MYCARE_UI_BACKEND");
-//    if (want && want[0] != '\0') {
-//       // Very simple, case-insensitive compare for common values
-//       auto eq = [](char a, char b){ return (a==b) || (std::tolower(a)==std::tolower(b)); };
-//       auto cmp = [&](const char* a, const char* b){
-//          if (!a || !b) return false;
-//          while (*a && *b) { if (!eq(*a++, *b++)) return false; }
-//          return *a=='\0' && *b=='\0';
-//       };
-//       if (!cmp(want, compiled)) {
-//          wxString msg;
-//          msg.Printf("Requested UI backend '%s' via MYCARE_UI_BACKEND, but this build is compiled for '%s'.\n"
-//                     "Runtime switching between GTK and Qt backends is not supported.\n"
-//                     "Please run the matching build (GTK or Qt6).", wxString::FromUTF8(want), wxString::FromUTF8(compiled));
-//          wxLogWarning("%s", msg); // Log warning
-// #ifdef __WXGTK__
-//          // Avoid showing a blocking dialog too early in app startup in some environments
-//          wxMessageBox(msg, "Backend mismatch", wxOK | wxICON_WARNING);
-// #else
-//          wxMessageBox(msg, "Backend mismatch", wxOK | wxICON_WARNING);
-// #endif
-//       }
-//    }
 }
 
 inline View::~View() {  }
